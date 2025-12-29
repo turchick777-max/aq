@@ -2,7 +2,7 @@
 <html data-wf-page="69396815efaae5adc8efcc82" data-wf-site="69396814efaae5adc8efcc0f" lang="en">
   <style>
  /* =========================
-   HEADER ICON CLEANUP
+   HEADER ICON REFINEMENT
    ========================= */
 
 /* УБРАТЬ РАМКУ / ПЛАШКУ ВОКРУГ ГЛОБУСА */
@@ -19,10 +19,15 @@
   outline: none !important;
 }
 
-/* СДЕЛАТЬ ГЛОБУС ТОНЬШЕ */
-.w-dropdown-toggle svg {
-  stroke-width: 1 !important;   /* тонкие линии */
+/* ГЛОБУС: тонкая обводка 1.2px */
+.w-dropdown-toggle svg,
+.w-dropdown-toggle svg * {
+  stroke-width: 1.2 !important;
   opacity: 0.85;
+}
+
+.icon-lang {
+  stroke-width: 1.2 !important;
 }
 
 /* ЕСЛИ ГЛОБУС НЕ SVG (fallback) */
@@ -31,17 +36,16 @@
   opacity: 0.85;
 }
 
-/* СДЕЛАТЬ БУРГЕР ТОНЬШЕ */
-.w-icon-nav-menu,
-.menu-button .w-icon-nav-menu {
+/* БУРГЕР: тонкие линии 1.2px */
+.w-icon-nav-menu {
   width: 22px;
   height: 16px;
 }
 
-/* ЛИНИИ БУРГЕРА */
+.w-icon-nav-menu,
 .w-icon-nav-menu:before,
 .w-icon-nav-menu:after {
-  border-top-width: 1px !important; /* было толще — делаем тонко */
+  border-top-width: 1.2px !important;
 }
 
 /* УБРАТЬ ЛЮБОЙ ФОН У БУРГЕРА */
@@ -50,9 +54,9 @@
   box-shadow: none !important;
   border: none !important;
 }
-    /* =========================
-   HEADER LAYOUT FIX
-   (logo left, globe + burger right)
+
+/* =========================
+   HEADER LAYOUT & ALIGNMENT
    ========================= */
 
 /* делаем внутренний контейнер шапки flex */
@@ -72,7 +76,8 @@
 /* глобус прижать вправо, и поставить перед бургером */
 .w-nav .w-dropdown {
   margin-left: auto !important;
-  margin-right: 16px !important; /* расстояние до бургера */
+  margin-right: 16px !important;
+  transform: translateY(-3px); /* поднять выше */
 }
 
 /* бургер крайний справа */
@@ -80,33 +85,35 @@
   margin-left: 0 !important;
 }
 
-/* одинаковые отступы слева/справа у шапки */
+.menu-button {
+  transform: translateY(-3px) !important; /* поднять выше */
+}
+
+/* ОДИНАКОВЫЕ ОТСТУПЫ: слева от логотипа = справа от бургера */
 .w-nav .w-container,
 .navbar .w-container {
-  padding-left: 24px !important;
-  padding-right: 24px !important;
-}
-/* =========================
-   ICON THIN LINES
-   ========================= */
-
-/* ГЛОБУС: если это SVG (чаще всего так) */
-.w-dropdown-toggle svg,
-.w-dropdown-toggle svg * {
-  stroke-width: 1 !important;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
 }
 
-/* если глобус не SVG, а картинка — просто чуть уменьшить и приглушить */
-.w-dropdown-toggle img {
-  transform: scale(0.9);
-  opacity: 0.85;
+/* СТРЕЛОЧКА СПРАВА ОТ ГЛОБУСА: больше отступ */
+.w-dropdown .icon.w-icon-dropdown-toggle {
+  margin-right: 12px !important;
+  margin-left: 0 !important;
+  order: 2; /* стрелка справа */
 }
 
-/* БУРГЕР (Webflow icon): делаем полоски тоньше */
-.w-icon-nav-menu,
-.w-icon-nav-menu:before,
-.w-icon-nav-menu:after {
-  border-top-width: 1px !important;
+/* сам глобус слева от стрелки */
+.w-dropdown .icon-lang {
+  order: 1;
+  margin-right: 0 !important;
+}
+
+/* контейнер dropdown: flex с gap */
+.w-dropdown .w-dropdown-toggle {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
 }
 </style>
 <head>
