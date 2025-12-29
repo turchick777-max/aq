@@ -729,7 +729,6 @@ a:hover {
   padding: 7px;
   font-size: 33px;
   transition: all .325s;
-  transform: translateY(-3px);
 }
 
 .menu-button:hover {
@@ -1052,20 +1051,58 @@ a:hover {
    HEADER ICONS REFINEMENT
    =================================== */
 
-/* Бургер-меню: тонкие линии 1px */
+/* Бургер-меню: полностью переопределяем на CSS-only с тонкими линиями 1px */
 .w-icon-nav-menu {
   width: 22px !important;
   height: 16px !important;
-  border-top: 1px solid currentColor !important;
+  display: block !important;
+  position: relative !important;
+}
+
+/* Скрыть icon font */
+.w-icon-nav-menu:before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Создаем свои линии 1px */
+.w-icon-nav-menu {
+  background: currentColor;
+  height: 1px !important;
+  width: 22px !important;
+  position: relative;
+  top: 7px;
 }
 
 .w-icon-nav-menu:before,
 .w-icon-nav-menu:after {
-  border-top: 1px solid currentColor !important;
-  border-top-width: 1px !important;
+  content: '' !important;
+  display: block !important;
+  background: currentColor;
+  height: 1px !important;
+  width: 22px !important;
+  position: absolute;
+  left: 0;
+  border: none !important;
 }
 
-/* Глобус: поднять выше */
-.navbar .w-dropdown {
-  transform: translateY(-3px);
+.w-icon-nav-menu:before {
+  top: -7px !important;
+}
+
+.w-icon-nav-menu:after {
+  top: 7px !important;
+}
+
+/* Выравнивание: бургер и глобус на одной линии */
+.menu-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.navbar .w-dropdown,
+.navbar .menu-button {
+  transform: translateY(0) !important;
+  align-self: center !important;
 }
