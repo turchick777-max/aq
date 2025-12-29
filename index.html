@@ -1,5 +1,57 @@
 <!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Dec 29 2025 13:07:47 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="69396815efaae5adc8efcc82" data-wf-site="69396814efaae5adc8efcc0f" lang="en">
+  <style>
+ /* =========================
+   HEADER ICON CLEANUP
+   ========================= */
+
+/* УБРАТЬ РАМКУ / ПЛАШКУ ВОКРУГ ГЛОБУСА */
+.w-dropdown-toggle {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* УБРАТЬ ОБВОДКУ ПРИ ФОКУСЕ */
+.w-dropdown-toggle:focus,
+.menu-button:focus {
+  outline: none !important;
+}
+
+/* СДЕЛАТЬ ГЛОБУС ТОНЬШЕ */
+.w-dropdown-toggle svg {
+  stroke-width: 1 !important;   /* тонкие линии */
+  opacity: 0.85;
+}
+
+/* ЕСЛИ ГЛОБУС НЕ SVG (fallback) */
+.w-dropdown-toggle img {
+  transform: scale(0.9);
+  opacity: 0.85;
+}
+
+/* СДЕЛАТЬ БУРГЕР ТОНЬШЕ */
+.w-icon-nav-menu,
+.menu-button .w-icon-nav-menu {
+  width: 22px;
+  height: 16px;
+}
+
+/* ЛИНИИ БУРГЕРА */
+.w-icon-nav-menu:before,
+.w-icon-nav-menu:after {
+  border-top-width: 1px !important; /* было толще — делаем тонко */
+}
+
+/* УБРАТЬ ЛЮБОЙ ФОН У БУРГЕРА */
+.menu-button {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+</style>
 <head>
   <meta charset="utf-8">
   <title>AQUINTAQA — Freshwater from seawater. A new desalination technology — no membranes, no high-salinity brine.</title>
