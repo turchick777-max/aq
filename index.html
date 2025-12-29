@@ -1,121 +1,5 @@
 <!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Dec 29 2025 13:07:47 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="69396815efaae5adc8efcc82" data-wf-site="69396814efaae5adc8efcc0f" lang="en">
-  <style>
- /* =========================
-   HEADER ICON REFINEMENT
-   ========================= */
-
-/* УБРАТЬ РАМКУ / ПЛАШКУ ВОКРУГ ГЛОБУСА */
-.w-dropdown-toggle {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
-
-/* УБРАТЬ ОБВОДКУ ПРИ ФОКУСЕ */
-.w-dropdown-toggle:focus,
-.menu-button:focus {
-  outline: none !important;
-}
-
-/* ГЛОБУС: тонкая обводка 1.2px */
-.w-dropdown-toggle svg,
-.w-dropdown-toggle svg * {
-  stroke-width: 1.2 !important;
-  opacity: 0.85;
-}
-
-.icon-lang {
-  stroke-width: 1.2 !important;
-}
-
-/* ЕСЛИ ГЛОБУС НЕ SVG (fallback) */
-.w-dropdown-toggle img {
-  transform: scale(0.9);
-  opacity: 0.85;
-}
-
-/* БУРГЕР: тонкие линии 1.2px */
-.w-icon-nav-menu {
-  width: 22px;
-  height: 16px;
-}
-
-.w-icon-nav-menu,
-.w-icon-nav-menu:before,
-.w-icon-nav-menu:after {
-  border-top-width: 1.2px !important;
-}
-
-/* УБРАТЬ ЛЮБОЙ ФОН У БУРГЕРА */
-.menu-button {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* =========================
-   HEADER LAYOUT & ALIGNMENT
-   ========================= */
-
-/* делаем внутренний контейнер шапки flex */
-.w-nav .w-container,
-.w-nav .container,
-.navbar .w-container,
-.navbar .container {
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* логотип всегда прижат влево */
-.w-nav .w-nav-brand {
-  margin-right: auto !important;
-}
-
-/* глобус прижать вправо, и поставить перед бургером */
-.w-nav .w-dropdown {
-  margin-left: auto !important;
-  margin-right: 16px !important;
-  transform: translateY(-3px); /* поднять выше */
-}
-
-/* бургер крайний справа */
-.w-nav .w-nav-button {
-  margin-left: 0 !important;
-}
-
-.menu-button {
-  transform: translateY(-3px) !important; /* поднять выше */
-}
-
-/* ОДИНАКОВЫЕ ОТСТУПЫ: слева от логотипа = справа от бургера */
-.w-nav .w-container,
-.navbar .w-container {
-  padding-left: 32px !important;
-  padding-right: 32px !important;
-}
-
-/* СТРЕЛОЧКА СПРАВА ОТ ГЛОБУСА: больше отступ */
-.w-dropdown .icon.w-icon-dropdown-toggle {
-  margin-right: 12px !important;
-  margin-left: 0 !important;
-  order: 2; /* стрелка справа */
-}
-
-/* сам глобус слева от стрелки */
-.w-dropdown .icon-lang {
-  order: 1;
-  margin-right: 0 !important;
-}
-
-/* контейнер dropdown: flex с gap */
-.w-dropdown .w-dropdown-toggle {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-}
-</style>
 <head>
   <meta charset="utf-8">
   <title>AQUINTAQA — Freshwater from seawater. A new desalination technology — no membranes, no high-salinity brine.</title>
@@ -137,6 +21,125 @@
   <link href="images/webclip.png" rel="apple-touch-icon">
   <meta name="robots" content="noindex, nofollow">
   <meta name="author" content="wtw"><!--  HEAD CODE  -->
+  <style>
+    /* ===========================================
+       HEADER ICONS FIX - FINAL VERSION
+       =========================================== */
+    
+    /* NAVBAR: правильный flex layout */
+    .navbar.w-container {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding: 12px 32px !important;
+    }
+    
+    /* LOGO слева */
+    .navbar .logo {
+      flex-shrink: 0;
+    }
+    
+    /* Правая часть: глобус + бургер */
+    .navbar .header-right {
+      display: flex !important;
+      align-items: center !important;
+      gap: 20px !important;
+    }
+    
+    /* ГЛОБУС dropdown */
+    .navbar > .w-dropdown {
+      order: 1;
+    }
+    
+    .navbar > .w-dropdown .w-dropdown-toggle {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border: none !important;
+    }
+    
+    /* Глобус иконка */
+    .navbar > .w-dropdown .icon-lang {
+      width: 24px !important;
+      height: 24px !important;
+      order: 1 !important;
+    }
+    
+    /* Стрелка СПРАВА от глобуса */
+    .navbar > .w-dropdown .icon.w-icon-dropdown-toggle {
+      order: 2 !important;
+      margin: 0 !important;
+      margin-left: 4px !important;
+      font-size: 10px !important;
+    }
+    
+    /* DIV-BLOCK-11 с бургером */
+    .navbar .div-block-11 {
+      order: 2;
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    .navbar .div-block,
+    .navbar .but-cont {
+      display: flex !important;
+      align-items: center !important;
+    }
+    
+    /* БУРГЕР МЕНЮ */
+    .navbar .menu-button {
+      padding: 8px !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    
+    /* Бургер иконка - тонкие линии 1px */
+    .navbar .menu-button .w-icon-nav-menu {
+      width: 22px !important;
+      height: 14px !important;
+      position: relative !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+    }
+    
+    /* Скрыть дефолтный icon font */
+    .navbar .menu-button .w-icon-nav-menu::before {
+      display: none !important;
+    }
+    
+    /* Три линии бургера через box-shadow */
+    .navbar .menu-button .w-icon-nav-menu {
+      background: transparent !important;
+      border-top: 1px solid currentColor !important;
+      border-bottom: 1px solid currentColor !important;
+    }
+    
+    .navbar .menu-button .w-icon-nav-menu::after {
+      content: '' !important;
+      display: block !important;
+      width: 100% !important;
+      height: 1px !important;
+      background: currentColor !important;
+      position: absolute !important;
+      top: 50% !important;
+      left: 0 !important;
+      transform: translateY(-50%) !important;
+    }
+    
+    /* SVG глобус - тонкая обводка */
+    .icon-lang {
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+    }
+  </style>
 </head>
 <body class="body">
   <div class="spline-content">
@@ -175,6 +178,18 @@
           </a>
         </div>
       </nav>
+      <!-- ГЛОБУС с языками - стрелка теперь ПОСЛЕ глобуса -->
+      <div data-hover="true" data-delay="0" class="w-dropdown">
+        <div class="link w-dropdown-toggle">
+          <div class="icon-lang"></div>
+          <div class="icon w-icon-dropdown-toggle"></div>
+        </div>
+        <nav class="dropdown-list-lang w-dropdown-list">
+          <a href="#" class="link w-dropdown-link">ENG</a>
+          <a href="#" class="link w-dropdown-link">RU</a>
+        </nav>
+      </div>
+      <!-- БУРГЕР МЕНЮ -->
       <div class="div-block-11">
         <div class="div-block">
           <div class="but-cont">
@@ -184,44 +199,27 @@
           </div>
         </div>
       </div>
-      <div data-hover="true" data-delay="0" class="w-dropdown">
-        <div class="link w-dropdown-toggle">
-          <div class="icon w-icon-dropdown-toggle"></div>
-          <div class="icon-lang"></div>
-        </div>
-        <nav class="dropdown-list-lang w-dropdown-list">
-          <a href="#" class="link w-dropdown-link">ENG</a>
-          <a href="#" class="link w-dropdown-link">RU</a>
-        </nav>
-      </div>
     </div>
   </div>
-  <div>
-    <div class="se1">
-      <div class="noize">
-        <div class="div1">
-          <div class="colum-l">
-            <div class="content-img">
-              <div class="div-block-5"></div>
-              <div class="text-block">Planet of 8+ billion people.<br></div>
-              <div class="text-block _2">~97.5% of water is not drinkable without desalination.<br></div>
-              <div class="div-block-17">
-                <div class="text-block-2">&lt;1% share of quickly accessible freshwater.</div>
-              </div>
-              <div class="podpis">
-                <div data-w-id="b925a8e9-1476-60d1-ad28-ab5ac1dae831" class="_1 no"></div>
-              </div>
-              <div data-w-id="b53a1e5d-6fdc-98e4-ec17-a2080318ba1a" class="sfera no"></div>
-            </div>
-          </div>
-          <div class="colum-r">
-            <h1 class="h1"><span class="spa">Next-generation desalination. </span></h1>
+  <div class="se1">
+    <div class="div1">
+      <div class="colum-l">
+        <div class="content-img">
+          <div class="text-block">Planet of 8+ billion people.</div>
+          <div class="text-block-2">~97.5% of water is not drinkable without desalination.</div>
+        </div>
+      </div>
+      <div class="colum-r">
+        <div class="soa">
+          <div class="kart">
+            <div class="text-block-5">&lt;1% SHARE OF QUICKLY<br>ACCESSIBLE FRESHWATER.</div>
+            <h1 class="h1"><span class="text-span">NEXT-GENERATION DESALINATION.</span></h1>
             <div class="text">No RO. No thermal distillation.</div>
-            <div class="div-block-4">
+            <div class="but-cont">
               <a href="#How-it-Works" class="link button w-inline-block">
-                <div>Learn the Technology ​​​​​​​</div>
+                <div>Learn the Technology</div>
               </a>
-              <a href="#" target="_blank" class="link button _2 w-inline-block">
+              <a href="#" class="link button _2 w-inline-block">
                 <div>Executive Summary (PDF)</div>
               </a>
             </div>
@@ -229,150 +227,137 @@
         </div>
       </div>
     </div>
-    <div id="How-it-Works" class="se2 no">
-      <div class="div2">
-        <h2 class="h2">How it Works</h2>
-        <div class="content-how-it-works">
-          <div class="kart-work">
-            <div class="div-block-6">
-              <div class="numb">1</div>
-            </div>
-            <div class="foto-wirk"></div>
-            <div class="div-block-8">
-              <div class="div-block-7"></div>
-            </div>
-            <div>
-              <div class="head">Feed</div>
-              <div class="text-work">Intake of seawater / brackish water. Coarse protection against debris, flow stabilisation and optional baseline pH/oxygen conditioning. No heavy pre-treatment trains.</div>
-            </div>
+  </div>
+  <div class="se2">
+    <div class="div2">
+      <h2 class="h2">process steps</h2>
+      <div class="div-block-14">
+        <div class="kart-work">
+          <div class="div-block-6">
+            <div class="numb">1</div>
           </div>
-          <div class="kart-work">
-            <div class="div-block-6">
-              <div class="numb">2</div>
-            </div>
-            <div class="foto-wirk _2"></div>
-            <div class="div-block-8">
-              <div class="div-block-7"></div>
-            </div>
-            <div>
-              <div class="head">Gas-sorbent</div>
-              <div class="text-work">An inert carrier gas with a fine-dispersed proprietary sorbent is dosed into the flow. Active capture centres are formed and the solution is prepared for selective extraction of salts and impurities.</div>
-            </div>
-          </div>
-          <div class="kart-work">
-            <div class="div-block-6">
-              <div class="numb">3</div>
-            </div>
-            <div class="foto-wirk _3"></div>
-            <div>
-              <div class="div-block-8">
-                <div class="div-block-7"></div>
-              </div>
-              <div class="head">Contact</div>
-              <div class="text-work">Intensive mass transfer: salt ions, hardness and dissolved organics are bound to the sorbent surface. The process runs under mild conditions — no membranes, no high pressures, no boiling</div>
-            </div>
-          </div>
-          <div class="kart-work">
-            <div class="div-block-6">
-              <div class="numb">4</div>
-            </div>
-            <div class="foto-wirk _4"></div>
-            <div>
-              <div class="div-block-8">
-                <div class="div-block-7"></div>
-              </div>
-              <div class="head">Separation</div>
-              <div class="text-work">Fast phase separation: purified water is separated from the loaded sorbent by mechanical/physical means. Noreverse osmosis or distillation. The treated stream goes to final polishing.</div>
-            </div>
-          </div>
-          <div class="kart-work">
-            <div class="div-block-6">
-              <div class="numb">5</div>
-            </div>
-            <div class="foto-wirk _5"></div>
-            <div class="div-block-8">
-              <div class="div-block-7"></div>
-            </div>
-            <div>
-              <div class="head">Mineralisation</div>
-              <div class="text-work">Final tuning: precise remineralisation to a drinking profile (TDS ~100–150 mg/L), Ca/Mg balance, pH 7.2–7.8, disinfection (UV/ozone on demand). At the outlet — ready-to-drink water.</div>
-            </div>
-          </div>
-          <div class="kart-work">
-            <div class="div-block-6">
-              <div class="numb">6</div>
-            </div>
-            <div class="foto-wirk _6"></div>
-            <div>
-              <div class="head">Sorbent Regeneration Loop </div>
-              <div class="text-work">The loaded sorbent is sent to a closed regeneration loop: captured ions are transferred into a concentrated solution/solid phase, reagents are recycled multiple times, the sorbent regains its activity and returns to the process. The loop operates at low energy input, without toxic brine discharge, ensuring stable performance and minimal consumable use.</div>
-            </div>
+          <div class="foto-wirk"></div>
+          <div>
+            <div class="head">Feed</div>
+            <div class="text-work">Intake of seawater / brackish water. Coarse protection against debris, flow stabilisation and optional baseline pH/oxygen conditioning. No heavy pre-treatment trains.</div>
           </div>
         </div>
-        <h2 class="h2">add functions</h2>
-        <div class="div-block-10">
-          <div class="kart-work _2">
-            <div class="div-block-6"></div>
-            <div class="foto-wirk-dop"></div>
-            <div class="div-block-9">
-              <div class="head">Admin Control Center (Admin CCC)</div>
-              <div class="text-work">....</div>
-            </div>
+        <div class="kart-work">
+          <div class="div-block-6">
+            <div class="numb">2</div>
           </div>
-          <div class="kart-work _2">
-            <div class="div-block-6"></div>
-            <div class="foto-wirk-dop _2"></div>
-            <div class="div-block-9">
-              <div class="head">Solar arrays</div>
-              <div class="text-work">....</div>
-            </div>
+          <div class="foto-wirk _2"></div>
+          <div>
+            <div class="head">Gas-sorbent</div>
+            <div class="text-work">An inert carrier gas with a fine-dispersed proprietary sorbent is dosed into the flow. Active capture centres are formed and the solution is prepared for selective extraction of salts and impurities.</div>
+          </div>
+        </div>
+        <div class="kart-work">
+          <div class="div-block-6">
+            <div class="numb">3</div>
+          </div>
+          <div class="foto-wirk _3"></div>
+          <div>
+            <div class="head">Contact</div>
+            <div class="text-work">Intensive mass transfer: salt ions, hardness and dissolved organics are bound to the sorbent surface. The process runs under mild conditions — no membranes, no high pressures, no boiling</div>
+          </div>
+        </div>
+      </div>
+      <div class="div-block-14 _2">
+        <div class="kart-work">
+          <div class="div-block-6">
+            <div class="numb">4</div>
+          </div>
+          <div class="foto-wirk _4"></div>
+          <div>
+            <div class="head">Separation</div>
+            <div class="text-work">Fast phase separation: purified water is separated from the loaded sorbent by mechanical/physical means. Noreverse osmosis or distillation. The treated stream goes to final polishing.</div>
+          </div>
+        </div>
+        <div class="kart-work">
+          <div class="div-block-6">
+            <div class="numb">5</div>
+          </div>
+          <div class="foto-wirk _5"></div>
+          <div>
+            <div class="head">Mineralisation</div>
+            <div class="text-work">Final tuning: precise remineralisation to a drinking profile (TDS ~100–150 mg/L), Ca/Mg balance, pH 7.2–7.8, disinfection (UV/ozone on demand). At the outlet — ready-to-drink water.</div>
+          </div>
+        </div>
+        <div class="kart-work">
+          <div class="div-block-6">
+            <div class="numb">6</div>
+          </div>
+          <div class="foto-wirk _6"></div>
+          <div>
+            <div class="head">Sorbent Regeneration Loop </div>
+            <div class="text-work">The loaded sorbent is sent to a closed regeneration loop: captured ions are transferred into a concentrated solution/solid phase, reagents are recycled multiple times, the sorbent regains its activity and returns to the process. The loop operates at low energy input, without toxic brine discharge, ensuring stable performance and minimal consumable use.</div>
+          </div>
+        </div>
+      </div>
+      <h2 class="h2">add functions</h2>
+      <div class="div-block-10">
+        <div class="kart-work _2">
+          <div class="div-block-6"></div>
+          <div class="foto-wirk-dop"></div>
+          <div class="div-block-9">
+            <div class="head">Admin Control Center (Admin CCC)</div>
+            <div class="text-work">....</div>
+          </div>
+        </div>
+        <div class="kart-work _2">
+          <div class="div-block-6"></div>
+          <div class="foto-wirk-dop _2"></div>
+          <div class="div-block-9">
+            <div class="head">Solar arrays</div>
+            <div class="text-work">....</div>
           </div>
         </div>
       </div>
     </div>
-    <div id="How-it-Works" class="se2">
-      <div class="div2">
-        <h2 class="h2">How it Works</h2>
-        <div class="content-how">
-          <div class="board">
-            <div class="dahboard">
-              <div class="content">
-                <div class="board-map">
-                  <div data-w-id="a61eead8-c8f6-bab8-43d4-9b1247bdce24" class="point-map-act _6">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
-                      <div class="head-how">Mineralisation</div>
-                      <div class="text-how">Final tuning: precise remineralisation to a drinking profile (TDS ~100–150 mg/L), Ca/Mg balance, pH 7.2–7.8, disinfection (UV/ozone on demand). At the outlet — ready-to-drink water.</div>
-                    </div>
+  </div>
+  <div id="How-it-Works" class="se2">
+    <div class="div2">
+      <h2 class="h2">How it Works</h2>
+      <div class="content-how">
+        <div class="board">
+          <div class="dahboard">
+            <div class="content">
+              <div class="board-map">
+                <div data-w-id="a61eead8-c8f6-bab8-43d4-9b1247bdce24" class="point-map-act _6">
+                  <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
+                    <div class="head-how">Mineralisation</div>
+                    <div class="text-how">Final tuning: precise remineralisation to a drinking profile (TDS ~100–150 mg/L), Ca/Mg balance, pH 7.2–7.8, disinfection (UV/ozone on demand). At the outlet — ready-to-drink water.</div>
                   </div>
-                  <div data-w-id="b913745e-b7c7-23b4-f781-129718f26884" class="point-map-act _5">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
-                      <div class="head-how">Separation</div>
-                      <div class="text-how">Fast phase separation: purified water is separated from the loaded sorbent by mechanical/physical means. Noreverse osmosis or distillation. The treated stream goes to final polishing.</div>
-                    </div>
+                </div>
+                <div data-w-id="b913745e-b7c7-23b4-f781-129718f26884" class="point-map-act _5">
+                  <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
+                    <div class="head-how">Separation</div>
+                    <div class="text-how">Fast phase separation: purified water is separated from the loaded sorbent by mechanical/physical means. Noreverse osmosis or distillation. The treated stream goes to final polishing.</div>
                   </div>
-                  <div data-w-id="893c30a1-24a9-c529-8f60-54b35e9fbb90" class="point-map-act _4">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
-                      <div class="head-how">Contact</div>
-                      <div class="text-how">Intensive mass transfer: salt ions, hardness and dissolved organics are bound to the sorbent surface. The process runs under mild conditions — no membranes, no high pressures, no boiling</div>
-                    </div>
+                </div>
+                <div data-w-id="893c30a1-24a9-c529-8f60-54b35e9fbb90" class="point-map-act _4">
+                  <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
+                    <div class="head-how">Contact</div>
+                    <div class="text-how">Intensive mass transfer: salt ions, hardness and dissolved organics are bound to the sorbent surface. The process runs under mild conditions — no membranes, no high pressures, no boiling</div>
                   </div>
-                  <div data-w-id="98c7f382-84ae-bd60-4e2f-6ce350a514ea" class="point-map-act _3">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
-                      <div class="head-how">Gas-sorbent</div>
-                      <div class="text-how">An inert carrier gas with a fine-dispersed proprietary sorbent is dosed into the flow. Active capture centres are formed and the solution is prepared for selective extraction of salts and impurities.</div>
-                    </div>
+                </div>
+                <div data-w-id="98c7f382-84ae-bd60-4e2f-6ce350a514ea" class="point-map-act _3">
+                  <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
+                    <div class="head-how">Gas-sorbent</div>
+                    <div class="text-how">An inert carrier gas with a fine-dispersed proprietary sorbent is dosed into the flow. Active capture centres are formed and the solution is prepared for selective extraction of salts and impurities.</div>
                   </div>
-                  <div data-w-id="f1abd9a3-3bd5-56bf-df2f-98dd827da24b" class="point-map-act _2">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
-                      <div class="head-how">Feed</div>
-                      <div class="text-how">Intake of seawater / brackish water. Coarse protection against debris, flow stabilisation and optional baseline pH/oxygen conditioning. No heavy pre-treatment trains.</div>
-                    </div>
+                </div>
+                <div data-w-id="f1abd9a3-3bd5-56bf-df2f-98dd827da24b" class="point-map-act _2">
+                  <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
+                    <div class="head-how">Feed</div>
+                    <div class="text-how">Intake of seawater / brackish water. Coarse protection against debris, flow stabilisation and optional baseline pH/oxygen conditioning. No heavy pre-treatment trains.</div>
                   </div>
-                  <div data-w-id="0b3a35e8-89d0-56f1-1044-02a9c9d0fdff" class="point-map-act">
-                    <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
-                      <div class="head-how">Sorbent Regeneration Loop </div>
-                      <div class="text-how">The loaded sorbent is sent to a closed regeneration loop: captured ions are transferred into a concentrated solution/solid phase, reagents are recycled multiple times, the sorbent regains its activity and returns to the process. The loop operates at low energy input, without toxic brine discharge, ensuring stable performance and minimal consumable use.</div>
-                    </div>
+                </div>
+                <div data-w-id="0b3a35e8-89d0-56f1-1044-02a9c9d0fdff" class="point-map-act">
+                  <div style="opacity:0;-webkit-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -57px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="info-up">
+                    <div class="head-how">Sorbent Regeneration Loop </div>
+                    <div class="text-how">The loaded sorbent is sent to a closed regeneration loop: captured ions are transferred into a concentrated solution/solid phase, reagents are recycled multiple times, the sorbent regains its activity and returns to the process. The loop operates at low energy input, without toxic brine discharge, ensuring stable performance and minimal consumable use.</div>
                   </div>
                 </div>
               </div>
@@ -381,65 +366,65 @@
         </div>
       </div>
     </div>
-    <div class="se3">
-      <div class="div3">
-        <h2 class="h2">Quality &amp; Standards</h2>
-        <div class="content"></div>
-      </div>
+  </div>
+  <div class="se3">
+    <div class="div3">
+      <h2 class="h2">Quality &amp; Standards</h2>
+      <div class="content"></div>
     </div>
-    <div class="se4">
-      <div class="div4">
-        <h2 class="h2">....</h2>
-        <div class="text">This is some text inside of a div block.</div>
-        <div class="content"></div>
-      </div>
+  </div>
+  <div class="se4">
+    <div class="div4">
+      <h2 class="h2">....</h2>
+      <div class="text">This is some text inside of a div block.</div>
+      <div class="content"></div>
     </div>
-    <div class="se5">
-      <div class="div5">
-        <h2 class="h2">Heading</h2>
-        <div class="text">This is some text inside of a div block.</div>
-        <div class="content"></div>
-      </div>
+  </div>
+  <div class="se5">
+    <div class="div5">
+      <h2 class="h2">Heading</h2>
+      <div class="text">This is some text inside of a div block.</div>
+      <div class="content"></div>
     </div>
-    <div class="se6">
-      <div class="div6">
-        <h2 class="h2">Heading</h2>
-        <div class="text">This is some text inside of a div block.</div>
-        <div class="content"></div>
-      </div>
+  </div>
+  <div class="se6">
+    <div class="div6">
+      <h2 class="h2">Heading</h2>
+      <div class="text">This is some text inside of a div block.</div>
+      <div class="content"></div>
     </div>
-    <div class="se6">
-      <div class="div6">
-        <h2 class="h2">Heading</h2>
-        <div class="text">This is some text inside of a div block.</div>
-        <div class="content"></div>
-      </div>
+  </div>
+  <div class="se6">
+    <div class="div6">
+      <h2 class="h2">Heading</h2>
+      <div class="text">This is some text inside of a div block.</div>
+      <div class="content"></div>
     </div>
-    <div class="se7">
-      <div class="div7">
-        <h2 class="h2">Heading</h2>
-        <div class="text">This is some text inside of a div block.</div>
-        <div class="content"></div>
-      </div>
+  </div>
+  <div class="se7">
+    <div class="div7">
+      <h2 class="h2">Heading</h2>
+      <div class="text">This is some text inside of a div block.</div>
+      <div class="content"></div>
     </div>
-    <div class="footer">
-      <div class="footer-1">
-        <h2 class="h2">Heading</h2>
-        <div class="text">This is some text inside of a div block.</div>
-        <div class="content"></div>
-      </div>
+  </div>
+  <div class="footer">
+    <div class="footer-1">
+      <h2 class="h2">Heading</h2>
+      <div class="text">This is some text inside of a div block.</div>
+      <div class="content"></div>
     </div>
-    <div class="footer2">
-      <div class="footer-2">
-        <div class="text-block-3">AQUINTAQA — Freshwater from seawater. A new desalination technology — no membranes, no high-salinity brine.</div>
-        <div class="div-block-3">
-          <a href="#">Accessibility</a>
-          <a href="#">Export Compliance</a>
-          <a href="#">Disclaimer</a>
-          <a href="#">Terms</a>
-          <a href="#">Cookies</a>
-          <a href="#">Privacy</a>
-        </div>
+  </div>
+  <div class="footer2">
+    <div class="footer-2">
+      <div class="text-block-3">AQUINTAQA — Freshwater from seawater. A new desalination technology — no membranes, no high-salinity brine.</div>
+      <div class="div-block-3">
+        <a href="#">Accessibility</a>
+        <a href="#">Export Compliance</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+        <a href="#">Privacy</a>
       </div>
     </div>
   </div>
