@@ -50,7 +50,64 @@
   box-shadow: none !important;
   border: none !important;
 }
+    /* =========================
+   HEADER LAYOUT FIX
+   (logo left, globe + burger right)
+   ========================= */
 
+/* делаем внутренний контейнер шапки flex */
+.w-nav .w-container,
+.w-nav .container,
+.navbar .w-container,
+.navbar .container {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* логотип всегда прижат влево */
+.w-nav .w-nav-brand {
+  margin-right: auto !important;
+}
+
+/* глобус прижать вправо, и поставить перед бургером */
+.w-nav .w-dropdown {
+  margin-left: auto !important;
+  margin-right: 16px !important; /* расстояние до бургера */
+}
+
+/* бургер крайний справа */
+.w-nav .w-nav-button {
+  margin-left: 0 !important;
+}
+
+/* одинаковые отступы слева/справа у шапки */
+.w-nav .w-container,
+.navbar .w-container {
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+/* =========================
+   ICON THIN LINES
+   ========================= */
+
+/* ГЛОБУС: если это SVG (чаще всего так) */
+.w-dropdown-toggle svg,
+.w-dropdown-toggle svg * {
+  stroke-width: 1 !important;
+}
+
+/* если глобус не SVG, а картинка — просто чуть уменьшить и приглушить */
+.w-dropdown-toggle img {
+  transform: scale(0.9);
+  opacity: 0.85;
+}
+
+/* БУРГЕР (Webflow icon): делаем полоски тоньше */
+.w-icon-nav-menu,
+.w-icon-nav-menu:before,
+.w-icon-nav-menu:after {
+  border-top-width: 1px !important;
+}
 </style>
 <head>
   <meta charset="utf-8">
