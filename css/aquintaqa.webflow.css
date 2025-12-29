@@ -1099,10 +1099,16 @@ a:hover {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  padding: 0 !important;
+  height: 24px !important;
+  width: 32px !important;
 }
 
 .navbar .w-dropdown,
-.navbar .menu-button {
+.navbar .menu-button,
+.navbar .div-block-11 {
   transform: translateY(0) !important;
   align-self: center !important;
+  display: flex !important;
+  align-items: center !important;
 }
