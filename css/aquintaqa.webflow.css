@@ -320,7 +320,7 @@ a:hover {
   margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
-  padding: 6px 2rem;
+  padding: 6px 32px;
   display: flex;
   position: fixed;
   inset: 0% 0% auto;
@@ -729,6 +729,7 @@ a:hover {
   padding: 7px;
   font-size: 33px;
   transition: all .325s;
+  transform: translateY(-3px);
 }
 
 .menu-button:hover {
@@ -1045,4 +1046,26 @@ a:hover {
   font-weight: 200;
   font-style: normal;
   font-display: swap;
+}
+
+/* ===================================
+   HEADER ICONS REFINEMENT
+   =================================== */
+
+/* Бургер-меню: тонкие линии 1px */
+.w-icon-nav-menu {
+  width: 22px !important;
+  height: 16px !important;
+  border-top: 1px solid currentColor !important;
+}
+
+.w-icon-nav-menu:before,
+.w-icon-nav-menu:after {
+  border-top: 1px solid currentColor !important;
+  border-top-width: 1px !important;
+}
+
+/* Глобус: поднять выше */
+.navbar .w-dropdown {
+  transform: translateY(-3px);
 }
