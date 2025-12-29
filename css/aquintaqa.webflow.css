@@ -1102,13 +1102,32 @@ a:hover {
   padding: 0 !important;
   height: 24px !important;
   width: 32px !important;
+  transform: translateY(-6px) !important;
 }
 
-.navbar .w-dropdown,
-.navbar .menu-button,
-.navbar .div-block-11 {
-  transform: translateY(0) !important;
-  align-self: center !important;
+.navbar .w-dropdown {
+  transform: translateY(-6px) !important;
   display: flex !important;
   align-items: center !important;
+}
+
+.navbar .div-block-11 {
+  display: flex !important;
+  align-items: center !important;
+  height: 24px !important;
+}
+
+/* Стрелка dropdown справа от глобуса */
+.navbar .w-dropdown .w-dropdown-toggle {
+  display: flex !important;
+  gap: 20px !important;
+}
+
+.navbar .w-dropdown .icon-lang {
+  order: 1 !important;
+}
+
+.navbar .w-dropdown .icon.w-icon-dropdown-toggle {
+  order: 2 !important;
+  font-size: 10px !important;
 }

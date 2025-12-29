@@ -62,32 +62,44 @@
   padding-right: 32px !important;
 }
 
-/* СТРЕЛОЧКА СПРАВА ОТ ГЛОБУСА: больше отступ */
-.w-dropdown .icon.w-icon-dropdown-toggle {
-  margin-left: 16px !important;
-  margin-right: 0 !important;
-  order: 2; /* стрелка справа */
-}
-
-/* сам глобус слева от стрелки */
-.w-dropdown .icon-lang {
-  order: 1;
-  margin-right: 0 !important;
-}
-
-/* контейнер dropdown: flex с gap */
-.w-dropdown .w-dropdown-toggle {
+/* СТРЕЛОЧКА СПРАВА ОТ ГЛОБУСА: ЯВНО вправо с отступом */
+.navbar .w-dropdown .w-dropdown-toggle {
   display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
-  gap: 0 !important;
+  gap: 20px !important;
 }
 
-/* ИДЕАЛЬНОЕ ВЫРАВНИВАНИЕ ПО ВЕРТИКАЛИ */
+.navbar .w-dropdown .icon-lang {
+  order: 1 !important;
+  margin: 0 !important;
+}
+
+.navbar .w-dropdown .icon.w-icon-dropdown-toggle {
+  order: 2 !important;
+  margin: 0 !important;
+  font-size: 10px !important;
+}
+
+/* БУРГЕР И ГЛОБУС: ОДИНАКОВАЯ ВЫСОТА */
 .navbar .w-dropdown,
-.navbar .div-block-11 {
+.navbar .div-block-11,
+.navbar .menu-button {
+  height: 24px !important;
   display: flex !important;
   align-items: center !important;
-  height: 36px !important;
+  justify-content: center !important;
+}
+
+/* БУРГЕР: поднять на уровень глобуса */
+.navbar .menu-button {
+  padding: 0 !important;
+  margin: 0 !important;
+  transform: translateY(-6px) !important;
+}
+
+.navbar .w-dropdown {
+  transform: translateY(-6px) !important;
 }
 </style>
 <head>
