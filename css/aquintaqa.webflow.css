@@ -1234,4 +1234,35 @@ a:hover {
 .navbar .w-dropdown {
   margin-right: 40px !important;
 }
+/* ===== FIX: стрелка справа от глобуса ===== */
+
+.navbar .w-dropdown-toggle {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;        /* расстояние между глобусом и стрелкой */
+  padding: 0 !important;
+}
+
+/* Глобус */
+.navbar .icon-lang {
+  order: 1 !important;
+  margin: 0 !important;
+}
+
+/* Стрелка */
+.navbar .w-icon-dropdown-toggle {
+  order: 2 !important;
+  margin: 0 !important;
+  font-size: 9px !important;
+  opacity: 0.8;
+  transform: translateY(1px); /* микро-выравнивание по центру */
+}
+
+/* Убрать ВСЕ фоны/рамки */
+.navbar .w-dropdown-toggle,
+.navbar .w-dropdown-toggle:hover {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
 
