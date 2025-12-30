@@ -1170,60 +1170,43 @@ a:hover {
   display: block !important;
 }
 
+/* Родитель должен быть relative */
+.se1 {
+  position: relative !important;
+}
+
+.se1 .noize {
+  position: relative !important;
+}
+
 /* "Planet of 8+ billion people." */
 .se1 .content-img > .text-block {
   position: absolute !important;
-  top: 100px !important;
-  left: 95px !important;
-  width: auto !important;
-  max-width: 500px !important;
-  text-align: left !important;
-  font-size: 1.1rem !important;
-  font-weight: 300 !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-  letter-spacing: 1.5px !important;
-  margin: 0 !important;
-  z-index: 100 !important;
-}
-
-/* "~97.5% of water is not drinkable without desalination." */
-.se1 .content-img > .text-block._2 {
-  position: absolute !important;
-  top: 130px !important;
-  left: 105px !important;
-  width: auto !important;
-  max-width: 500px !important;
-  text-align: left !important;
-  font-size: 0.85rem !important;
-  font-weight: 300 !important;
-  color: rgba(255, 255, 255, 0.5) !important;
-  letter-spacing: 1px !important;
-  margin: 0 !important;
-  z-index: 100 !important;
-}
-
-/* ---- LOWER-RIGHT TEXT (<1% SHARE...) ---- */
-.se1 .div-block-17 {
-  position: absolute !important;
-  top: 23% !important;
-  left: 20% !important;
+  top: 80px !important;
+  left: 32px !important;
   right: auto !important;
   bottom: auto !important;
-  transform: translateY(-50%) !important;
-  width: auto !important;
-  height: auto !important;
-  display: block !important;
-  z-index: 100 !important;
 }
 
-.se1 .div-block-17 .text-block-2 {
-  white-space: nowrap !important;
-  text-align: left !important;
-  font-size: 0.75rem !important;
-  font-weight: 500 !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  letter-spacing: 2px !important;
-  text-transform: uppercase !important;
-  margin: 0 !important;
+/* "~97.5% of water..." */
+.se1 .content-img > .text-block._2 {
+  position: absolute !important;
+  top: 115px !important;
+  left: 32px !important;
+  right: auto !important;
+  bottom: auto !important;
 }
+
+/* "<1% SHARE..." */
+.se1 .div-block-17 {
+  position: absolute !important;
+  top: 35% !important;
+  left: 25% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+}
+```
+
+
 
