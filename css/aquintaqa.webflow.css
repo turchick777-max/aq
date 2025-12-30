@@ -1230,4 +1230,8 @@ a:hover {
   position: relative !important;
   top: -7.5px !important;
 }
+/* Глобус левее от бургера */
+.navbar .w-dropdown {
+  margin-right: 40px !important;
+}
 
