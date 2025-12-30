@@ -1190,7 +1190,7 @@ a:hover {
 .se1 .content-img > .text-block._2 {
   position: fixed !important;
   top: 130px !important;
-  left: 110px !important;
+  left: 105px !important;
   width: auto !important;
   max-width: 500px !important;
   text-align: left !important;
@@ -1205,9 +1205,9 @@ a:hover {
 /* ---- LOWER-RIGHT TEXT (<1% SHARE...) ---- */
 .se1 .div-block-17 {
   position: fixed !important;
-  top: auto !important;
+  top: 150 !important;
   bottom: 38% !important;
-  left: auto !important;
+  left: 150 !important;
   right: 52% !important;
   width: auto !important;
   height: auto !important;
