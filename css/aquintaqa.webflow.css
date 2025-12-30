@@ -1134,93 +1134,94 @@ a:hover {
 .spline-scene {
   transform: translateX(-20%) !important;
 }
-Add to the end of aquintaqa.webflow.css:
+/* =============================================
+   HERO TEXT REPOSITIONING - PRODUCTION FIX
+   =============================================
+   
+   Elements moved:
+   1. ".text-block" (Planet of 8+ billion people) → top-left under logo
+   2. ".text-block._2" (~97.5% of water...) → below first text, same position
+   3. ".text-block-2" (<1% SHARE...) → lower-right, single line near planet
+   
+   Paste this CSS at the END of aquintaqa.webflow.css
+   ============================================= */
 
-/* Position "Planet of 8+ billion people" text to the left, under the logo */
-.content-img {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+/* ---- HERO SECTION CONTAINER ---- */
+.se1 {
+  position: relative !important;
 }
 
-.content-img .text-block {
-  position: absolute !important;
-  top: 120px !important;
+.se1 .noize {
+  position: relative !important;
+}
+
+.se1 .div1 {
+  position: relative !important;
+}
+
+/* ---- TOP-LEFT TEXT GROUP (under logo) ---- */
+/* Create positioning context */
+.se1 .colum-l {
+  position: static !important;
+}
+
+.se1 .content-img {
+  position: static !important;
+  display: block !important;
+}
+
+/* "Planet of 8+ billion people." */
+.se1 .content-img > .text-block {
+  position: fixed !important;
+  top: 100px !important;
   left: 32px !important;
+  width: auto !important;
+  max-width: 500px !important;
   text-align: left !important;
-  max-width: 400px !important;
+  font-size: 1.1rem !important;
+  font-weight: 300 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  letter-spacing: 1.5px !important;
+  margin: 0 !important;
+  z-index: 100 !important;
 }
 
-.content-img .text-block._2 {
-  position: absolute !important;
-  top: 160px !important;
+/* "~97.5% of water is not drinkable without desalination." */
+.se1 .content-img > .text-block._2 {
+  position: fixed !important;
+  top: 130px !important;
   left: 32px !important;
+  width: auto !important;
+  max-width: 500px !important;
   text-align: left !important;
-  max-width: 450px !important;
+  font-size: 0.85rem !important;
+  font-weight: 300 !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  letter-spacing: 1px !important;
+  margin: 0 !important;
+  z-index: 100 !important;
 }
 
-/* Position "<1% share" text lower and to the right, near the sphere */
-.div-block-17 {
-  position: absolute !important;
-  bottom: 35% !important;
-  left: 30% !important;
+/* ---- LOWER-RIGHT TEXT (<1% SHARE...) ---- */
+.se1 .div-block-17 {
+  position: fixed !important;
+  top: auto !important;
+  bottom: 38% !important;
+  left: auto !important;
+  right: 52% !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+  z-index: 100 !important;
 }
 
-/* ===================================
-   TEXT POSITIONING - LEFT COLUMN
-   =================================== */
-
-/* Left column - absolute positioning */
-.colum-l {
-  position: relative !important;
-}
-
-.content-img {
-  position: relative !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* "Planet of 8+ billion people" - TOP LEFT above sphere */
-.content-img .text-block {
-  position: absolute !important;
-  top: 50px !important;
-  left: 50px !important;
+.se1 .div-block-17 .text-block-2 {
+  white-space: nowrap !important;
   text-align: left !important;
-  max-width: 400px !important;
-  z-index: 10 !important;
-}
-
-/* "~97.5% of water..." - below first text */
-.content-img .text-block-2 {
-  position: absolute !important;
-  top: 90px !important;
-  left: 50px !important;
-  text-align: left !important;
-  max-width: 400px !important;
-  z-index: 10 !important;
-}
-
-/* Right column positioning */
-.colum-r {
-  position: relative !important;
-}
-
-.soa {
-  position: relative !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* "<1% SHARE..." - RIGHT of sphere center */
-.soa .text-block-5 {
-  position: absolute !important;
-  top: 45% !important;
-  right: 15% !important;
-  text-align: left !important;
-  max-width: 280px !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  letter-spacing: 2px !important;
   text-transform: uppercase !important;
-  z-index: 10 !important;
+  margin: 0 !important;
 }
