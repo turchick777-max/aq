@@ -1205,10 +1205,11 @@ a:hover {
 /* ---- LOWER-RIGHT TEXT (<1% SHARE...) ---- */
 .se1 .div-block-17 {
   position: fixed !important;
-  top: 150 !important;
-  bottom: 38% !important;
-  left: 150 !important;
-  right: 52% !important;
+  top: 50% !important;
+  left: 28% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
   width: auto !important;
   height: auto !important;
   display: block !important;
