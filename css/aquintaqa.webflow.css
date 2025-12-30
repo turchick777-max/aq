@@ -1226,20 +1226,3 @@ a:hover {
   text-transform: uppercase !important;
   margin: 0 !important;
 }
-* Включить мерцающую точку и поставить на сферу */
-.se1 .podpis {
-  position: fixed !important;
-  top: 40% !important;
-  left: 10% !important;
-  width: auto !important;
-  margin: 0 !important;
-  z-index: 100 !important;
-}
-
-.se1 ._1.no {
-  display: block !important;
-}
-/* Скрыть серую точку (луну) в Spline сцене */
-.spline-scene canvas {
-  clip-path: inset(0 60% 0 0) !important;
-}
