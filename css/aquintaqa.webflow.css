@@ -1172,42 +1172,55 @@ Add to the end of aquintaqa.webflow.css:
    TEXT POSITIONING - LEFT COLUMN
    =================================== */
 
-/* Left column positioning */
+/* Left column - absolute positioning */
 .colum-l {
   position: relative !important;
 }
 
-/* "Planet of 8+ billion people" - top left */
-.content-img .text-block:first-of-type {
+.content-img {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* "Planet of 8+ billion people" - TOP LEFT above sphere */
+.content-img .text-block {
   position: absolute !important;
-  top: -150px !important;
-  left: 0 !important;
+  top: 50px !important;
+  left: 50px !important;
   text-align: left !important;
-  max-width: 500px !important;
+  max-width: 400px !important;
   z-index: 10 !important;
 }
 
 /* "~97.5% of water..." - below first text */
-.content-img .text-block._2 {
+.content-img .text-block-2 {
   position: absolute !important;
-  top: -110px !important;
-  left: 0 !important;
+  top: 90px !important;
+  left: 50px !important;
   text-align: left !important;
-  max-width: 500px !important;
+  max-width: 400px !important;
   z-index: 10 !important;
 }
 
-/* "<1% share of quickly..." - center right of sphere */
-.div-block-17 {
+/* Right column positioning */
+.colum-r {
+  position: relative !important;
+}
+
+.soa {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* "<1% SHARE..." - RIGHT of sphere center */
+.soa .text-block-5 {
   position: absolute !important;
-  top: 50% !important;
-  left: 60% !important;
-  transform: translateY(-50%) !important;
-  z-index: 10 !important;
-}
-
-.div-block-17 .text-block-2 {
+  top: 45% !important;
+  right: 15% !important;
   text-align: left !important;
   max-width: 280px !important;
   text-transform: uppercase !important;
+  z-index: 10 !important;
 }
