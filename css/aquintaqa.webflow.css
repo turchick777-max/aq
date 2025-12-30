@@ -1173,7 +1173,7 @@ a:hover {
 /* "Planet of 8+ billion people." */
 .se1 .content-img > .text-block {
   position: absolute !important;
-  top: 80px !important;
+  top: 60px !important;
   left: 95px !important;
   width: auto !important;
   max-width: 500px !important;
@@ -1189,7 +1189,7 @@ a:hover {
 /* "~97.5% of water is not drinkable without desalination." */
 .se1 .content-img > .text-block._2 {
   position: absolute !important;
-  top: 110px !important;
+  top: 80px !important;
   left: 105px !important;
   width: auto !important;
   max-width: 500px !important;
@@ -1204,7 +1204,7 @@ a:hover {
 
 /* ---- LOWER-RIGHT TEXT (<1% SHARE...) ---- */
 .se1 .div-block-17 {
-  position: fixed !important;
+  position: absolute !important;
   top: 23% !important;
   left: 20% !important;
   right: auto !important;
