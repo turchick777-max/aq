@@ -1132,16 +1132,6 @@ a:hover {
   font-size: 10px !important;
 }
 .spline-scene {
-  transform: translateX(-15%) !important;
+  transform: translateX(-20%) !important;
 }
 ```
-
-Или напиши в Claude Code Web:
-```
-Add to the end of aquintaqa.webflow.css:
-
-.spline-scene {
-  transform: translateX(-15%) !important;
-}
-
-This will move the 3D sphere to the left.
