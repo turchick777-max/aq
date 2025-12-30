@@ -1173,7 +1173,7 @@ a:hover {
 /* "Planet of 8+ billion people." - вверху слева под логотипом */
 .se1 .content-img > .text-block {
   position: absolute !important;
-  top: 30px !important;
+  top: 15px !important;
   left: 90px !important;
   width: auto !important;
   max-width: 500px !important;
@@ -1189,7 +1189,7 @@ a:hover {
 /* "~97.5% of water..." - под первым текстом */
 .se1 .content-img > .text-block._2 {
   position: absolute !important;
-  top: 65px !important;
+  top: 35px !important;
   left: 90px !important;
   width: auto !important;
   max-width: 500px !important;
@@ -1205,8 +1205,8 @@ a:hover {
 /* "<1% SHARE..." - справа от сферы, по центру */
 .se1 .div-block-17 {
   position: absolute !important;
-  top: 150px !important;
-  left: 350px !important;
+  top: 100px !important;
+  left: 300px !important;
   right: auto !important;
   bottom: auto !important;
   transform: translateY(-50%) !important;
