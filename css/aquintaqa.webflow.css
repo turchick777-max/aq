@@ -1265,4 +1265,32 @@ a:hover {
   border: none !important;
   box-shadow: none !important;
 }
+/* FIX: стрелка справа от глобуса (Webflow dropdown arrow override) */
+.navbar .w-dropdown-toggle {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 0 !important;
+}
+
+/* ВАЖНО: Webflow часто делает стрелку absolute — сбрасываем */
+.navbar .w-dropdown-toggle .w-icon-dropdown-toggle {
+  position: static !important;
+  right: auto !important;
+  top: auto !important;
+  margin: 0 !important;
+  flex: none !important;
+  font-size: 10px !important;
+  transform: translateY(1px) !important;
+}
+
+/* Глобус */
+.navbar .w-dropdown-toggle .icon-lang {
+  margin: 0 !important;
+  flex: none !important;
+}
+
+/* Порядок: глобус слева, стрелка справа */
+.navbar .w-dropdown-toggle .icon-lang { order: 1 !important; }
+.navbar .w-dropdown-toggle .w-icon-dropdown-toggle { order: 2 !important; }
 
