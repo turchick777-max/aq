@@ -1228,7 +1228,7 @@ a:hover {
 }
 .navbar .menu-button {
   position: relative !important;
-  top: -7.5px !important;
+  top: -7px !important;
 }
 /* Глобус левее от бургера */
 .navbar .w-dropdown {
