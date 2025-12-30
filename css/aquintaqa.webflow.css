@@ -1174,7 +1174,7 @@ a:hover {
 .se1 .content-img > .text-block {
   position: fixed !important;
   top: 100px !important;
-  left: 100px !important;
+  left: 95px !important;
   width: auto !important;
   max-width: 500px !important;
   text-align: left !important;
@@ -1190,7 +1190,7 @@ a:hover {
 .se1 .content-img > .text-block._2 {
   position: fixed !important;
   top: 130px !important;
-  left: 32px !important;
+  left: 125px !important;
   width: auto !important;
   max-width: 500px !important;
   text-align: left !important;
