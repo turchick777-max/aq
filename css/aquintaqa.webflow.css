@@ -1170,11 +1170,11 @@ a:hover {
   display: block !important;
 }
 
-/* "Planet of 8+ billion people." */
+/* "Planet of 8+ billion people." - вверху слева под логотипом */
 .se1 .content-img > .text-block {
   position: absolute !important;
-  top: 15px !important;
-  left: 130px !important;
+  top: 120px !important;
+  left: 90px !important;
   width: auto !important;
   max-width: 500px !important;
   text-align: left !important;
@@ -1186,11 +1186,11 @@ a:hover {
   z-index: 100 !important;
 }
 
-/* "~97.5% of water is not drinkable without desalination." */
+/* "~97.5% of water..." - под первым текстом */
 .se1 .content-img > .text-block._2 {
   position: absolute !important;
-  top: 20px !important;
-  left: 124px !important;
+  top: 155px !important;
+  left: 90px !important;
   width: auto !important;
   max-width: 500px !important;
   text-align: left !important;
@@ -1202,11 +1202,11 @@ a:hover {
   z-index: 100 !important;
 }
 
-/* ---- LOWER-RIGHT TEXT (<1% SHARE...) ---- */
+/* "<1% SHARE..." - справа от сферы, по центру */
 .se1 .div-block-17 {
   position: absolute !important;
-  top: 15% !important;
-  left: 20% !important;
+  top: 240px !important;
+  left: 290px !important;
   right: auto !important;
   bottom: auto !important;
   transform: translateY(-50%) !important;
