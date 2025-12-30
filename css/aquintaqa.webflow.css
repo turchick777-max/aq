@@ -1226,4 +1226,8 @@ a:hover {
   text-transform: uppercase !important;
   margin: 0 !important;
 }
+.navbar .menu-button {
+  position: relative !important;
+  top: -10px !important;
+}
 
