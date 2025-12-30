@@ -1206,7 +1206,7 @@ a:hover {
 .se1 .div-block-17 {
   position: fixed !important;
   top: 30% !important;
-  left: 20% !important;
+  left: 25% !important;
   right: auto !important;
   bottom: auto !important;
   transform: translateY(-50%) !important;
@@ -1229,8 +1229,8 @@ a:hover {
 * Включить мерцающую точку и поставить на сферу */
 .se1 .podpis {
   position: fixed !important;
-  top: 42% !important;
-  left: 32% !important;
+  top: 20% !important;
+  left: 20% !important;
   width: auto !important;
   margin: 0 !important;
   z-index: 100 !important;
