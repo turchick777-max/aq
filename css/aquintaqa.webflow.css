@@ -1134,4 +1134,36 @@ a:hover {
 .spline-scene {
   transform: translateX(-20%) !important;
 }
-```
+Add to the end of aquintaqa.webflow.css:
+
+/* Position "Planet of 8+ billion people" text to the left, under the logo */
+.content-img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.content-img .text-block {
+  position: absolute !important;
+  top: 120px !important;
+  left: 32px !important;
+  text-align: left !important;
+  max-width: 400px !important;
+}
+
+.content-img .text-block._2 {
+  position: absolute !important;
+  top: 160px !important;
+  left: 32px !important;
+  text-align: left !important;
+  max-width: 450px !important;
+}
+
+/* Position "<1% share" text lower and to the right, near the sphere */
+.div-block-17 {
+  position: absolute !important;
+  bottom: 35% !important;
+  left: 30% !important;
+}
