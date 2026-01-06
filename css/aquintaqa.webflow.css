@@ -1308,6 +1308,13 @@ a:hover {
   font-weight: 700 !important;
   letter-spacing: 1px;
 }
+/* BURGER MENU: use same font as Planet text */
+.nav-menu-2 .w-nav-link {
+  font-family: inherit !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.08em !important;
+}
+
 
 
 
