@@ -1,497 +1,262 @@
-/* =========================================
-   1. VARIABLES & RESET
-   ========================================= */
-:root {
-    --bg-dark: #000000;
-    --bg-panel: rgba(255, 255, 255, 0.03);
-    --text-primary: #ffffff;
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --text-muted: rgba(255, 255, 255, 0.5);
-    --accent-cyan: #42cff2;
-    --accent-glow: rgba(66, 207, 242, 0.4);
-    
-    --font-main: 'Onest', sans-serif;
-    --container-width: 1440px;
-    --nav-height: 80px;
-}
-
+/* ========================
+   RESET & CORE
+   ======================== */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html, body {
-    background-color: var(--bg-dark);
-    font-family: var(--font-main);
-    color: var(--text-primary);
+body, html {
     width: 100%;
+    height: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Onest', Helvetica, Arial, sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
-ul { list-style: none; }
-
-/* =========================================
-   2. TYPOGRAPHY
-   ========================================= */
-@font-face { font-family: 'Onest'; src: url('../fonts/Onest-Light.woff') format('woff'); font-weight: 300; font-display: swap; }
-@font-face { font-family: 'Onest'; src: url('../fonts/Onest-Regular.woff') format('woff'); font-weight: 400; font-display: swap; }
-@font-face { font-family: 'Onest'; src: url('../fonts/Onest-Medium.woff') format('woff'); font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Onest'; src: url('../fonts/Onest-Bold.woff') format('woff'); font-weight: 700; font-display: swap; }
-
-h1, h2, h3 { font-weight: 700; line-height: 1.2; }
-p { line-height: 1.6; }
-
-.container {
-    width: 92%;
-    max-width: var(--container-width);
-    margin: 0 auto;
+/* ========================
+   FONTS (Пути с выходом на уровень вверх ../)
+   ======================== */
+@font-face {
+    font-family: 'Onest';
+    src: url('../fonts/Onest-Regular.woff') format('woff');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Onest';
+    src: url('../fonts/Onest-Light.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Onest';
+    src: url('../fonts/Onest-Bold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
 }
 
-/* =========================================
-   3. NAVIGATION (Modern Flexbox)
-   ========================================= */
+/* ========================
+   NAVBAR
+   ======================== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--nav-height);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
     z-index: 1000;
-    display: flex;
-    align-items: center;
+    padding: 30px 40px;
+    background: transparent;
 }
 
-.navbar-container {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
 .brand-logo img {
-    height: 32px;
+    height: 36px;
     width: auto;
     display: block;
 }
 
-.nav-actions {
+.nav-right {
     display: flex;
     align-items: center;
     gap: 24px;
 }
 
-/* Language Dropdown */
-.lang-dropdown-wrapper {
-    position: relative;
-}
-
-.lang-toggle {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--text-primary);
-    padding: 8px;
-}
-
-.icon-globe { width: 20px; height: 20px; opacity: 0.9; }
-.icon-arrow { font-size: 10px; opacity: 0.7; transition: transform 0.3s; }
-
-.lang-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background: rgba(0, 0, 0, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 8px 0;
-    min-width: 80px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.lang-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-}
-
-.lang-link {
-    padding: 6px 16px;
-    text-align: center;
-    font-size: 14px;
-}
-
-.lang-link:hover { background: rgba(255, 255, 255, 0.1); }
-
-/* Hamburger Menu Icon (CSS Only) */
-.menu-button-wrapper {
-    width: 32px;
+.icon-globe {
+    width: 24px;
     height: 24px;
+    opacity: 0.9;
     cursor: pointer;
-    position: relative;
-    z-index: 1002;
-    display: flex;
-    align-items: center;
+    transition: opacity 0.3s;
 }
+.icon-globe:hover { opacity: 1; }
 
-.menu-icon-lines, .menu-icon-lines::before, .menu-icon-lines::after {
-    width: 100%;
-    height: 2px;
-    background-color: white;
-    position: absolute;
-    transition: all 0.3s ease;
-}
-
-.menu-icon-lines::before { content: ''; top: -8px; }
-.menu-icon-lines::after { content: ''; top: 8px; }
-
-/* Menu Open State Animation */
-.menu-button-wrapper.open .menu-icon-lines { background: transparent; }
-.menu-button-wrapper.open .menu-icon-lines::before { top: 0; transform: rotate(45deg); }
-.menu-button-wrapper.open .menu-icon-lines::after { top: 0; transform: rotate(-45deg); }
-
-/* Fullscreen Menu Overlay */
-.fullscreen-menu-overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 50vw; /* Half screen as per design */
-    height: 100vh;
-    background: #000;
-    z-index: 1001;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex;
-    align-items: center;
-    padding-left: 60px;
-    border-left: 1px solid rgba(255,255,255,0.05);
-}
-
-.fullscreen-menu-overlay.active { transform: translateX(0); }
-
-.fullscreen-nav-content {
+.burger-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
+    width: 30px;
+    cursor: pointer;
 }
 
-.nav-link {
-    font-size: 20px;
-    font-weight: 300;
-    color: var(--text-secondary);
+.burger-line {
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    transition: 0.3s;
 }
 
-.nav-link:hover, .nav-link.current {
-    color: var(--accent-cyan);
-    transform: translateX(5px);
-}
-
-/* =========================================
-   4. HERO SECTION (Grid Layout)
-   ========================================= */
+/* ========================
+   HERO SECTION
+   ======================== */
 .hero-section {
     position: relative;
-    height: 100vh;
-    min-height: 700px;
     width: 100%;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
-/* Spline Background */
-.spline-wrapper {
+/* Spline Viewer */
+.spline-background {
     position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none; /* Let clicks pass through */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
-
-.spline-scene {
+spline-viewer {
     width: 100%;
     height: 100%;
 }
 
-.hero-grid {
+/* Overlay Container */
+.hero-overlay {
     position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Visual gets more space */
+    z-index: 10;
+    width: 100%;
+    max-width: 1600px;
     height: 100%;
-    align-items: center;
+    margin: 0 auto;
+    pointer-events: none;
 }
 
-/* Left Column: Visuals & Stats */
-.hero-col-visual {
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Text: "Planet of 8B..." */
-.hero-stats-group {
+/* === LEFT CONTENT === */
+.content-left {
     position: absolute;
-    top: 25%;
-    left: 0;
-    max-width: 450px;
+    top: 22%;
+    left: 40px;
+    pointer-events: auto;
 }
 
-.hero-stat-primary {
-    font-size: 1.25rem;
+.text-primary {
+    font-size: 1.4rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.9);
     letter-spacing: 0.05em;
     margin-bottom: 8px;
 }
 
-.hero-stat-secondary {
-    font-size: 0.95rem;
-    color: var(--text-muted);
+.text-secondary {
+    font-size: 1rem;
     font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
 }
 
-/* Text: "<1% SHARE..." */
-.hero-floating-label {
-    position: absolute;
-    top: 45%;
-    right: 10%; /* Adjust based on sphere position */
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.indicator-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent-cyan);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent-cyan);
-}
-
-.label-text {
-    font-size: 0.75rem;
+.small-caps-label {
+    margin-top: 15vh;
+    margin-left: 120px;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.85);
 }
 
-/* Star Overlay */
-.star-container {
+/* === STAR (GLINT) === */
+.star-element {
     position: absolute;
-    top: 38%; /* Adjusted to match glint */
-    left: 30%;
-    width: 80px;
-    height: 80px;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    animation: starPulse 4s ease-in-out infinite;
+    top: 38%;
+    left: 28%;
+    width: 70px;
+    height: 70px;
+    z-index: 5;
     pointer-events: none;
+    animation: starPulse 3s infinite ease-in-out;
 }
 
 @keyframes starPulse {
-    0%, 100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    0%, 100% { opacity: 0.7; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(255,255,255,0.8)); }
 }
 
-/* Right Column: Content */
-.hero-col-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 40px;
+/* === RIGHT CONTENT === */
+.content-right {
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    text-align: left;
+    pointer-events: auto;
 }
 
-.hero-title {
+h1 {
     font-size: 3.5rem;
-    text-transform: uppercase;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
-.highlight-cyan {
-    color: var(--accent-cyan);
-    background: -webkit-linear-gradient(45deg, #fff, var(--accent-cyan));
+.text-blue {
+    color: #42CFF2;
+    background: linear-gradient(90deg, #42CFF2 0%, #2b8fa8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero-subtitle {
+.subtitle {
     font-size: 1.25rem;
-    color: var(--text-primary);
-    margin-bottom: 3rem;
     font-weight: 400;
+    color: #fff;
+    margin-bottom: 40px;
 }
 
-/* CTA Button */
-.btn-ghost {
+.btn-outline {
     display: inline-block;
-    padding: 14px 28px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 8px;
-    color: var(--text-primary);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s;
 }
 
-.btn-ghost:hover {
-    border-color: var(--accent-cyan);
+.btn-outline:hover {
+    border-color: #42CFF2;
     background: rgba(66, 207, 242, 0.1);
     box-shadow: 0 0 15px rgba(66, 207, 242, 0.2);
 }
 
-/* =========================================
-   5. SECTION: HOW IT WORKS (Cards)
-   ========================================= */
-.section-dark {
-    padding: 100px 0;
-    background: var(--bg-dark);
-}
-
-.section-title {
-    font-size: 2rem;
-    text-transform: uppercase;
-    margin-bottom: 60px;
-    text-align: center;
-    color: var(--text-primary);
-}
-
-.process-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-}
-
-.process-card {
-    background: var(--bg-panel);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 40px 30px;
-    position: relative;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.process-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(66, 207, 242, 0.3);
-}
-
-.card-number {
-    font-size: 4rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.05);
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    line-height: 1;
-}
-
-.card-visual {
-    height: 200px;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 12px;
-    margin-bottom: 24px;
-    /* Placeholder for actual images */
-    background-size: cover;
-    background-position: center;
-}
-
-.card-head {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-    color: var(--accent-cyan);
-}
-
-.card-text {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-}
-
-/* =========================================
-   6. FOOTER
-   ========================================= */
-.footer {
-    padding: 40px 0;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.85rem;
-}
-
-.footer-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.copyright { color: var(--text-muted); }
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a:hover { color: var(--accent-cyan); }
-
-/* =========================================
-   7. RESPONSIVE DESIGN (Mobile)
-   ========================================= */
-@media screen and (max-width: 991px) {
-    .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .hero-col-visual {
-        min-height: 50vh;
-        order: 1;
-    }
-
-    .hero-col-content {
-        order: 2;
-        padding-left: 0;
-        padding-bottom: 60px;
-    }
-
-    .hero-stats-group {
+/* ========================
+   ADAPTIVE (MOBILE)
+   ======================== */
+@media (max-width: 991px) {
+    .content-left {
         top: 15%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
+        left: 20px;
+        right: 20px;
         text-align: center;
     }
-
-    .hero-floating-label {
+    .small-caps-label {
+        margin-left: 0;
+        margin-top: 30px;
+        text-align: center;
+    }
+    
+    .content-right {
         top: auto;
         bottom: 10%;
-        right: 50%;
-        transform: translateX(50%);
-        width: 100%;
-        justify-content: center;
+        right: 20px;
+        left: 20px;
+        transform: none;
+        text-align: center;
     }
-
-    .hero-title { font-size: 2.5rem; }
     
-    .fullscreen-menu-overlay { width: 100vw; }
-}
-
-@media screen and (max-width: 479px) {
-    .hero-title { font-size: 2rem; }
-    .hero-stat-primary { font-size: 1rem; }
-    .card-number { font-size: 3rem; }
+    h1 { font-size: 2.2rem; }
+    .star-element { display: none; }
 }
