@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AQUINTAQA — Next-Generation Desalination</title>
-    <meta content="width=device-width, initial-scale=1" name="viewport">
     
     <link href="css/aquintaqa.webflow.css" rel="stylesheet" type="text/css">
     
@@ -16,66 +16,85 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="brand-logo">
-                <img src="images/Group-1.png" alt="AQUINTAQA">
+            <a href="/" class="brand-logo" aria-label="Home">
+                <img src="images/Group-1.png" alt="AQUINTAQA Logo">
             </a>
 
             <div class="nav-right">
-                <div class="lang-wrapper">
-                    <img src="images/Globe.svg" alt="Global" class="icon-globe">
+                <div class="lang-dropdown">
+                    <button class="lang-btn" aria-label="Language">
+                        <img src="images/Globe.svg" alt="" class="icon-globe">
+                    </button>
+                    <div class="lang-content">
+                        <a href="#">ENG</a>
+                        <a href="#">RU</a>
+                    </div>
                 </div>
-                <div class="burger-wrapper">
-                    <div class="burger-line"></div>
-                    <div class="burger-line"></div>
-                </div>
+
+                <button class="burger-btn" aria-label="Menu" onclick="toggleMenu()">
+                    <span class="burger-line top"></span>
+                    <span class="burger-line bottom"></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <section class="hero-section">
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-links">
+            <a href="#" onclick="toggleMenu()">Technology</a>
+            <a href="#" onclick="toggleMenu()">Quality</a>
+            <a href="#" onclick="toggleMenu()">Models</a>
+            <a href="#" onclick="toggleMenu()">Investors</a>
+            <a href="#" onclick="toggleMenu()">Public Overview</a>
+        </div>
+    </div>
+
+    <main class="hero-section">
         
         <div class="spline-background">
             <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js"></script>
             <spline-viewer url="https://prod.spline.design/8z6pBDvGF-zx6ta3/scene.splinecode"></spline-viewer>
         </div>
 
-        <div class="hero-overlay">
+        <div class="hero-overlay-container">
             
-            <div class="content-left">
-                <p class="text-primary">Planet of 8+ billion people.</p>
-                <p class="text-secondary">~97.5% of water is not drinkable without desalination.</p>
+            <div class="hero-left">
+                <div class="text-group-top">
+                    <p class="text-primary">Planet of 8+ billion people.</p>
+                    <p class="text-secondary">~97.5% of water is not drinkable without desalination.</p>
+                </div>
                 
-                <div class="small-caps-label">
-                    &lt;1% SHARE OF QUICKLY ACCESSIBLE FRESHWATER.
+                <div class="text-group-middle">
+                    <p class="small-caps">&lt;1% SHARE OF QUICKLY ACCESSIBLE FRESHWATER.</p>
                 </div>
             </div>
 
-            <div class="star-element">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <filter id="glow-filter">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                        </filter>
-                    </defs>
-                    <path d="M100,0 L105,95 L200,100 L105,105 L100,200 L95,105 L0,100 L95,95 Z" fill="white" filter="url(#glow-filter)" />
-                </svg>
-            </div>
-
-            <div class="content-right">
-                <h1>
+            <div class="hero-right">
+                <h1 class="hero-title">
                     NEXT-GENERATION<br>
-                    <span class="text-blue">DESALINATION.</span>
+                    <span class="text-highlight">DESALINATION.</span>
                 </h1>
-                <p class="subtitle">No RO. No thermal distillation.</p>
+                <p class="hero-subtitle">No RO. No thermal distillation.</p>
                 
-                <a href="#" class="btn-outline">
+                <a href="#" class="cta-button">
                     Executive Summary (PDF)
                 </a>
             </div>
 
         </div>
-    </section>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.burger-btn');
+            const body = document.body;
+            
+            menu.classList.toggle('active');
+            btn.classList.toggle('open');
+            body.classList.toggle('no-scroll');
+        }
+    </script>
 
 </body>
 </html>
