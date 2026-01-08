@@ -375,3 +375,124 @@ spline-viewer {
 
     .hero-title { font-size: 2.2rem; }
 }
+/* =========================================
+   EMBEDDED MARKER (PHYSICAL OPTICS)
+   Реализация по ТЗ: многослойность, окклюзия, физика света
+   ========================================= */
+
+:root {
+    /* ПОЗИЦИЯ ТОЧКИ НА СФЕРЕ (Настрой эти цифры, чтобы попасть в блик) */
+    --marker-pos-x: 28%; 
+    --marker-pos-y: 38%;
+    
+    /* ЦВЕТА И НАСТРОЙКИ */
+    --marker-color-core: #E0FFFF;           [cite_start]/* Ядро: плотный, чуть голубоватый белый [cite: 11] */
+    --marker-color-glow: #42CFF2;           /* Свечение: фирменный циан */
+    --marker-color-occlusion: rgba(0, 10, 25, 0.7); [cite_start]/* Тень контакта [cite: 14] */
+    --marker-size: 80px;                    [cite_start]/* Размер области эффекта [cite: 8] */
+}
+
+/* Контейнер: позиционируется относительно оверлея */
+.embedded-marker-container {
+    position: absolute;
+    top: var(--marker-pos-y);
+    left: var(--marker-pos-x);
+    width: var(--marker-size);
+    height: var(--marker-size);
+    transform: translate(-50%, -50%); /* Центрируем точку в координатах */
+    z-index: 20; 
+    pointer-events: none; /* Пропускаем клики сквозь точку */
+}
+
+.marker-composition {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+[cite_start]/* Слой 4: Contact Occlusion (Контактная тень) [cite: 14, 16] 
+   Создает эффект, что точка не летит, а лежит на сфере */
+.layer-occlusion {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--marker-color-occlusion) 20%, transparent 100%);
+    mix-blend-mode: multiply; /* Затемнение */
+    filter: blur(2px);
+    z-index: 1;
+}
+
+[cite_start]/* Слой 3: Outer Glow (Атмосфера) [cite: 13] */
+.layer-outer-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(66, 207, 242, 0.2) 0%, transparent 70%);
+    mix-blend-mode: screen; /* Осветление */
+    animation: marker-breathe-glow 7s ease-in-out infinite;
+    z-index: 2;
+}
+
+[cite_start]/* Слой 2: Inner Glow (Свечение ядра) [cite: 12] */
+.layer-inner-glow {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(66, 207, 242, 0.9) 0%, rgba(66, 207, 242, 0) 70%);
+    mix-blend-mode: screen;
+    filter: blur(3px);
+    animation: marker-breathe-core 5s ease-in-out infinite alternate;
+    z-index: 3;
+}
+
+[cite_start]/* Слой 1: Core (Ядро) [cite: 11] */
+.layer-core {
+    position: absolute;
+    width: 5px; 
+    height: 5px;
+    background-color: var(--marker-color-core);
+    border-radius: 50%;
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.6);
+    z-index: 4;
+    animation: marker-breathe-core 5s ease-in-out infinite alternate;
+}
+
+[cite_start]/* Искры (Редкий эффект) [cite: 25] */
+.layer-flare-h, .layer-flare-v {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 5;
+    mix-blend-mode: plus-lighter;
+    /* Очень редкая вспышка: раз в 9 секунд */
+    animation: marker-spark-flash 9s ease-in-out infinite; 
+}
+
+.layer-flare-h { width: 30px; height: 1px; filter: blur(0.5px); }
+.layer-flare-v { width: 1px; height: 30px; filter: blur(0.5px); animation-delay: 0.1s; }
+
+[cite_start]/* === АНИМАЦИИ (Без дискотеки, плавное дыхание) [cite: 23, 24] === */
+
+@keyframes marker-breathe-core {
+    0% { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes marker-breathe-glow {
+    0% { opacity: 0.3; transform: scale(0.9); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+    100% { opacity: 0.3; transform: scale(0.9); }
+}
+
+@keyframes marker-spark-flash {
+    0%, 45%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+    50% { opacity: 0.9; transform: scale(1.2) rotate(15deg); } /* Пик */
+    55% { opacity: 0; transform: scale(0.5) rotate(30deg); }
+}
